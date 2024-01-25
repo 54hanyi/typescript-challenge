@@ -10,8 +10,8 @@ export function asyncSum(numbers: number[]): Promise<number> {
     return new Promise((resolve, reject) => {
         try {
             // 請在此處寫下你的程式碼
-            if (!numbers.every(Number.isFinite)) {
-                throw new TypeError("所有元素必须是数字");
+            if (numbers.length > 10) { // 假設當數組過大時拋出錯誤
+                throw new Error("Array is too large");
             }
             const sum = numbers.reduce((acc, curr) => acc + curr, 0);
             resolve(sum);
